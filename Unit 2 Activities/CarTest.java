@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -43,6 +41,7 @@ public class CarTest
     public void tearDown()
     {
     }
+    
     @Test
     public void testGetGasInTank()
     {
@@ -50,19 +49,40 @@ public class CarTest
         double gallons = testCar.getGasInTank();
         //assertion = make sure that the following is true
         assertEquals(0.0, gallons, 1e-6);
-        //There will be a warning and it basically says that the method will not be there eventually
-        //whenever you are working with doubles you need to be cautious becuase of the way that they
-        //are stored in the computer; 64 bits is not enough
-        //You use epsilon to tells the computer 
+        /**There will be a warning and it basically says that the method will not be there eventually
+         *whenever you are working with doubles you need to be cautious becuase of the way that they
+         *are stored in the computer; 64 bits is not enough
+         *You use epsilon to tell the computer that something is to the 10th power
+         */ 
+         
+        
     }
     
     @Test
     public void testAddGas()
+    
     {
         Car testCar = new Car(50);
         testCar.addGas(20);
         double gallons = testCar.getGasInTank();
         assertEquals(20.0, gallons, 1e-6);
         
-        testCar.addGas
+        testCar.addGas(5);
+        gallons = testCar.getGasInTank();
+        assertEquals(25.0, gallons, 1e-6);
+     }
+
+     @Test 
+     public void testDrive()
+     { 
+         Car testCar = new Car(50);
+         testCar.addGas(20);
+         testCar.drive(25);
+         double gallons = testCar.getGasInTank();
+         assertEquals(19.5, gallons, 1e-6);
+    
+         testCar.drive(100);
+         gallons = testCar.getGasInTank();
+         assertEquals(17.5, gallons, 1e-6);
+        }
 }

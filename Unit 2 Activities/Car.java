@@ -18,10 +18,15 @@ public class Car
     
 
     /**
-     * Constructor for Car that specifies fuel efficiency
+     * Constructor for Car that specifies fuel efficiency (mpg)
      */
     public Car(double fuelEfficiency)
     {
+        this.fuelEfficiency = fuelEfficiency;
+        /**you need to specify the object that the variable belongs to or use a different variable
+         * name because the variable in the class will overshadow the gloabl variable.  
+         */ 
+        fuelInTank = 0;
     }
 
     /**
@@ -34,28 +39,34 @@ public class Car
      */
     public void addGas(double gallons)
     {
+        this.fuelInTank = this.fuelInTank + gallons;
     }
-    
+    
+
     /**
      * Reduces the fuel in this car's tank based on this car's fuel efficiency and the 
      * specified number of miles driven.
      * 
      * @pre    the specified number of miles will not comsume more than the amount of fuel in 
-     *          this car's tank
-     * @param   miles the number fo miles driven
+     *         this car's tank
+     * @param  miles (the number of miles driven)
      */
     public void drive(double miles)
     {
+        double gallonsBurned = miles / this.fuelEfficiency;
+        this.fuelInTank = this.fuelInTank - gallonsBurned;
+        
     }
-
+
+
     /**
      * Returns the number of gallons of gas remaining in this car's tank.
      * @return  the number of gallons fo gas remaining in this car's tank.
      */
     public double getGasInTank()
     {
-        // put your code here
-        return 0;
+        // put this to specify which object the fuelInTank method is acting on
+        return this.fuelInTank;
     }
 
 
