@@ -19,8 +19,7 @@ public class VendingMachine
      */
     public VendingMachine(int Cans)
     {
-      totalCans = 10
-      totaltokens = 0
+      totalCans = 10;
     }
 
     /**

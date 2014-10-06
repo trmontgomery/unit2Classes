@@ -25,6 +25,13 @@ public class CityscapeComponent extends JComponent
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;
+        Building b1 = new Building(200, 250);
+        Building b2 = new Building(400, 250);
+        Ground ground1 = new Ground(0,0);
+        
+        b1.draw(g2);
+        b2.draw(g2);
+        ground1.draw(g2);
         
         // create instances of classes and invoke the draw method on each
         // ...

@@ -34,8 +34,18 @@ public class Building
      */
     public void draw(Graphics2D g2)
     {
-        Rectangle frame = new Rectangle (10, 10, 0, 0);
+        int w1X = xLeft + 10;
+        int w1Y = yTop + 10;
+        Rectangle frame = new Rectangle (xLeft, yTop, 90, 90);
+        Rectangle w1 = new Rectangle (w1X,w1Y, 20,20);
+        int w2X = w1X + 20 + 10;
+        int w2Y = w1Y;
+        Rectangle w2 = new Rectangle (w2X, w2Y, 20, 20);
+        
         g2.draw(frame);
+        g2.draw(w1);
+        g2.draw(w2);
+        
     }
     
     public void addWindows(int windows)
