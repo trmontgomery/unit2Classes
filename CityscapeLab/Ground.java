@@ -3,28 +3,31 @@ import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
-
+import java.awt.Color;
 
 public class Ground
 {
     
     private int xLeft;
     private int yTop;
+    private int height;
+    private int width;
     
-
-    public Ground(int x, int y)
+    public Ground(int x, int y, int h, int w)
     { 
         xLeft = x;
         yTop = y;
+        height = h;
+        width = w;
     }
 
     
     public void draw (Graphics2D g2)
     {
-        Rectangle ground = new Rectangle (0, 350, 800, 300);
-        
-        g2.draw(ground);
-        g2.setColor(Color.blue);
+        g2.setColor(Color.green);
+        g2.drawRect(xLeft, yTop, width, height);
+        g2.fillRect(xLeft, yTop, width, height);
+       
     }
 
 }
